@@ -8,10 +8,10 @@ public class Cat extends Animals {
 
     @Override
     public String toString() {
-        return "Кошка - " +
+         return "Кошка - " +
                 " Возраст кошки: " + catAge +
                 " Номер кошки: " + catId +
                 " Вес кошки: " + catWeight +
-                " Имя кошки: " + catName;
+                " Имя кошки: " + catName + "\n";
     }
 }

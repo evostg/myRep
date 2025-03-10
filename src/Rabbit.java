@@ -6,13 +6,12 @@ public class Rabbit extends Animals {
     private String rabbitName = getName();
 
 
-
     @Override
     public String toString() {
-        return "Кролик - " +
+         return "Кролик - " +
                 " Возраст: " + rabbitAge +
                 " Номер кролика: " + rabbitId +
                 " Вес кролика: " + rabbitWeight +
-                " Имя кролика: " + rabbitName;
+                " Имя кролика: " + rabbitName + "\n";
     }
 }
