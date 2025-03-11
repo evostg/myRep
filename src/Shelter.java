@@ -5,10 +5,14 @@ public class Shelter {
     private static int allSheltersSize = 0;
     private static int waitingRoomSize = 0;
 
-    static ArrayList<Cat> catsShelter = new ArrayList<>();
-    static ArrayList<Dog> dogsShelter = new ArrayList<>();
-    static ArrayList<Rabbit> rabbitsShelter = new ArrayList<>();
+    static ArrayList<Animals> catsShelter = new ArrayList<>();
+    static ArrayList<Animals> dogsShelter = new ArrayList<>();
+    static ArrayList<Animals> rabbitsShelter = new ArrayList<>();
     static ArrayList<Animals> waitingRoom = new ArrayList<>();
+
+
+
+    //TODO Несколько животных?
 
     public static void add (String input) {
         if (allSheltersSize >= 100) {
@@ -26,7 +30,7 @@ public class Shelter {
             rabbitsShelter.add(new Rabbit());
             allSheltersSize++;
         }
-    } // add
+    } //dd
 
     public static void remove (String input) {
         if (input.contains("pick up Dog")) {
@@ -53,7 +57,31 @@ public class Shelter {
             waitingRoom.add(new Rabbit());
             waitingRoomSize++;
         }
+        Shelter.toShelter();
     } // waiting
+
+    //TODO Проверить работоспособность
+
+    public static void toShelter () {
+        if (allSheltersSize < 100) {
+            Animals animal = waitingRoom.removeFirst();
+            switch (animal) {
+                case Dog ignored -> dogsShelter.add(animal);
+                case Cat ignored -> catsShelter.add(animal);
+                case Rabbit ignored -> rabbitsShelter.add(animal);
+                default -> throw new IllegalStateException("Неизвестная ошибка: " + animal);
+            }
+//            if (waitingRoom.removeFirst() instanceof Cat) {
+//                catsShelter.add(animal);
+//            }
+//            if (waitingRoom.removeFirst() instanceof Dog) {
+//                dogsShelter.add(animal);
+//            }
+//            if (waitingRoom.removeFirst() instanceof Rabbit) {
+//                rabbitsShelter.add(animal);
+//            }
+        }
+    } // toShelter
 
     public static void otherOptions (String input) {
         if (input.contains("All Cats")) {
