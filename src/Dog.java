@@ -5,7 +5,6 @@ public class Dog extends Animals{
     private double dogWeight = getWeight();
     private String dogName = getName();
 
-
     @Override
     public String toString() {
          return "Собака - " +
