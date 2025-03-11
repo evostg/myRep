@@ -1,35 +1,44 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Shelter {
 
     private static int allSheltersSize = 0;
     private static int waitingRoomSize = 0;
 
-    static Set<Cat> catsShelter = new HashSet<>();
-    static Set<Dog> dogsShelter = new HashSet<>();
-    static Set<Rabbit> rabbitsShelter = new HashSet<>();
-    static Set<Animals> waitingRoom = new HashSet<>();
+    static ArrayList<Cat> catsShelter = new ArrayList<>();
+    static ArrayList<Dog> dogsShelter = new ArrayList<>();
+    static ArrayList<Rabbit> rabbitsShelter = new ArrayList<>();
+    static ArrayList<Animals> waitingRoom = new ArrayList<>();
 
-    public void add (String input) {
+    public static void add (String input) {
         if (allSheltersSize >= 100) {
             Shelter.waiting(input);
         }
-        if (input.contains("Cat")) {
+        if (input.contains("add Cat")) {
             catsShelter.add(new Cat());
             allSheltersSize++;
         }
-        if (input.contains("Dog")) {
+        if (input.contains("add Dog")) {
             dogsShelter.add(new Dog());
             allSheltersSize++;
         }
-        if (input.contains("Rabbit")) {
+        if (input.contains("add Rabbit")) {
             rabbitsShelter.add(new Rabbit());
             allSheltersSize++;
         }
-
     } // add
+
+    public static void remove (String input) {
+        if (input.contains("pick up Dog")) {
+            dogsShelter.removeFirst();
+        }
+        if (input.contains("pick up Cat")) {
+            catsShelter.removeFirst();
+        }
+        if (input.contains("pick up Rabbit")) {
+            rabbitsShelter.removeFirst();
+        }
+    } //remove
 
     public static void waiting(String input) {
         if (input.contains("Cat")) {
@@ -46,7 +55,7 @@ public class Shelter {
         }
     } // waiting
 
-    public void otherOptions (String input) {
+    public static void otherOptions (String input) {
         if (input.contains("All Cats")) {
             System.out.println(catsShelter.toString());
             System.out.println("Количество кошек: " + catsShelter.size());
