@@ -19,7 +19,6 @@ public class Shelter {
 
 //                       ДОБАВЛЕНИЕ ЖИВОТНЫХ В ХРАНИЛИЩЕ
 
-    // добавить цикл для нескольких животных
     public static void add (String input) {
         if (allSheltersSize >= MAX_SHELTER_SIZE) {
             waiting(input);
