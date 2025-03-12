@@ -16,7 +16,7 @@ public class Main {
             }
             shelter.add(input);
             shelter.otherOptions(input);
-            shelter.remove(input);
+            shelter.remove(input );
         }
     }
 }
