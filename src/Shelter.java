@@ -17,53 +17,72 @@ public class Shelter {
     static ArrayList<Animals> waitingRoom = new ArrayList<>();
 
 
-//TODO Разделить?
+//                       ДОБАВЛЕНИЕ ЖИВОТНЫХ В ХРАНИЛИЩЕ
+
     public static void add (String input) {
         if (allSheltersSize >= MAX_SHELTER_SIZE) {
            waiting(input);
            return;
         }
         switch (input.toLowerCase()) {
-            case "add cat" -> {
-                catsShelter.add(new Cat());
-                allSheltersSize++;
-                System.out.println(adding);
-            }
-            case "add dog" -> {
-                dogsShelter.add(new Dog());
-                allSheltersSize++;
-                System.out.println(adding);
-            }
-            case "add rabbit" -> {
-                rabbitsShelter.add(new Rabbit());
-                allSheltersSize++;
-                System.out.println(adding);
-            }
+            case "add cat" -> addCat();
+            case "add dog" -> addDog();
+            case "add rabbit" -> addRabbit();
         }
     } //add
-    //TODO Исключить забор животных из пустых убежищ
-    //TODO Разделить?
 
+    public static void addCat () {
+        catsShelter.add(new Cat());
+        allSheltersSize++;
+        System.out.println(adding);
+    }
+    public static void addDog () {
+        dogsShelter.add(new Dog());
+        allSheltersSize++;
+        System.out.println(adding);
+    }
+    public static void addRabbit () {
+        rabbitsShelter.add(new Rabbit());
+        allSheltersSize++;
+        System.out.println(adding);
+    }
+
+    //                      ЗАБОР ЖИВОТНЫХ ИЗ ХРАНИЛИЩА
     public static void remove (String input) {
-        if (input.toLowerCase().contains("pick up dog")) {
+        switch (input.toLowerCase()) {
+            case "pick up dog" -> pickUpDog();
+            case "pick up cat" -> pickUpCat();
+            case "pick up rabbit" -> pickUpRabbit();
+        } if (allSheltersSize == 99) toShelter();
+    } //remove
+
+    public static void pickUpDog () {
+        if (!dogsShelter.isEmpty()) {
             dogsShelter.removeFirst();
             allSheltersSize--;
             System.out.println(happy);
+        } else {
+            System.out.println("Собак нет в наличии");
         }
-        if (input.toLowerCase().contains("pick up cat")) {
+    }
+    public static void pickUpCat () {
+        if (!catsShelter.isEmpty()) {
             catsShelter.removeFirst();
             allSheltersSize--;
             System.out.println(happy);
+        } else {
+            System.out.println("Кошек нет в наличии");
         }
-        if (input.toLowerCase().contains("pick up rabbit")) {
+    }
+    public static void pickUpRabbit () {
+        if (!rabbitsShelter.isEmpty()) {
             rabbitsShelter.removeFirst();
             allSheltersSize--;
             System.out.println(happy);
+        } else {
+            System.out.println("Кроликов нет в наличии");
         }
-        if (allSheltersSize == 99) toShelter();
-    } //remove
-
-    //TODO Разделить?
+    }
 
     public static void waiting(String input) {
         if (input.toLowerCase().contains("add cat")) {
@@ -117,7 +136,8 @@ public class Shelter {
         if (input.toLowerCase().contains("all animals")) {
             System.out.println(catsShelter.toString() + dogsShelter.toString() +
                     rabbitsShelter.toString());
-            System.out.println(allSheltersSize);
+            System.out.println("");
+            System.out.println("Животных в убежище: " + allSheltersSize);
             System.out.println(waitingRoom.toString());
         }
         if (input.contains("F")) {

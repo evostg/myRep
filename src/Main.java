@@ -14,6 +14,9 @@ public class Main {
                 System.out.println("Ты всех убил. Животное.");
                 break;
             }
+            if (input.trim().isEmpty()) {
+                System.out.println("Вы ничего не ввели");
+            }
             shelter.add(input);
             shelter.otherOptions(input);
             shelter.remove(input );
