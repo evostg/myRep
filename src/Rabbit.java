@@ -1,4 +1,4 @@
-public class Rabbit extends Animals {
+public class Rabbit extends Animal {
 
     private int rabbitAge = getAge();
     private int rabbitId =  getId();

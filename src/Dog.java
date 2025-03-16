@@ -1,4 +1,4 @@
-public class Dog extends Animals{
+public class Dog extends Animal {
 
     private int dogAge = getAge();
     private int dogId =  getId();

@@ -6,20 +6,27 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        while (true) {
-            System.out.println("Скажите, кого привезли (Не вводите F): ");
-            String input = scanner.nextLine();
 
-            if (input.equalsIgnoreCase("F")) {
-                System.out.println("Ты всех убил. Животное.");
+        //TODO разделить методы через енам и сплит
+        //TODO какая команда пришла - метод вызывается
+
+        while (true) {
+            System.out.println("Скажите, кого привезли: ");
+            String input = scanner.nextLine();
+            String[] parts = input.split(" ");
+            switch (parts[0]) {
+                case "add"  -> shelter.add(parts[1],Integer.valueOf(parts[2]));
+                case "pick" -> shelter.pick(parts[2]);
+                case "all"  -> shelter.otherOptions(parts[1]);
+                default -> System.out.println("Error.");
+            }
+            if (input.equalsIgnoreCase("Clear")) {
+                System.out.println("Shelter now is empty");
                 break;
             }
             if (input.trim().isEmpty()) {
                 System.out.println("Вы ничего не ввели");
             }
-            shelter.add(input);
-            shelter.otherOptions(input);
-            shelter.remove(input);
             shelter.processInput(input);
         }
     }

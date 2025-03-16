@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Animals {
+public class Animal {
 
     private int age;
     private int id;
@@ -14,13 +14,14 @@ public class Animals {
     private static double minWeight = 1.0;
     private static double maxWeight = 15.0;
 
-    public Animals() {
+    public Animal() {
         this.age = generateRandomAge();
         this.id = generateRandomId();
         this.weight = Math.round(generateRandomWeight() * 10) / 10.0;
         this.name = generateRandomName();
     }
 
+//TODO Сделать генератор
 
     private int generateRandomAge() {
         return random.nextInt(maxAge - minAge + 1) + minAge;
