@@ -9,6 +9,12 @@ public class Main {
 
         //TODO разделить методы через енам и сплит
         //TODO какая команда пришла - метод вызывается
+        System.out.println("Command list: " +
+                "\n\"Add animal\"" +
+                "\n\"Pick up animal\"" +
+                "\n\"Remove animal by ID\"" +
+                "\n\"All animals\"" +
+                "\n\"Clear\"");
 
         while (true) {
             System.out.println("Enter the command: ");
