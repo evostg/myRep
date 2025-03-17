@@ -11,23 +11,22 @@ public class Main {
         //TODO какая команда пришла - метод вызывается
 
         while (true) {
-            System.out.println("Скажите, кого привезли: ");
+            System.out.println("Enter the command: ");
             String input = scanner.nextLine();
             String[] parts = input.split(" ");
             switch (parts[0]) {
-                case "add"  -> shelter.add(parts[1],Integer.valueOf(parts[2]));
-                case "pick" -> shelter.pick(parts[2]);
+                case "add"  -> shelter.add(parts[1], Integer.valueOf(parts[2]));
+                case "pick" -> shelter.removeAnimal(parts[2]);
+                case "remove" -> shelter.removeById(parts[1], Integer.parseInt(parts[4]));
                 case "all"  -> shelter.otherOptions(parts[1]);
                 default -> System.out.println("Error.");
             }
             if (input.equalsIgnoreCase("Clear")) {
                 System.out.println("Shelter now is empty");
-                break;
             }
             if (input.trim().isEmpty()) {
                 System.out.println("Вы ничего не ввели");
             }
-            shelter.processInput(input);
         }
     }
 }
